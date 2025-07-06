@@ -77,3 +77,34 @@ traceroute to google.com (216.58.200.174), 64 hops max, 52 byte packets
 
   THIS GIVES INFO LIKE HOW MANY ROUTES IT HAS TO GO TO REACH GOOGLE.COM
  */
+
+
+/**
+ *   UDP :  USER DATAGRAM PROTOCOL ALL THESE PROTOCOL ARE ABOVE IP LAYER PROTOCOL
+ * 
+ *   VIDEO STREAMING
+ *   VPN
+ *   DNS 
+ *   WEBRTC (REAL TIME COMMUNICATION)
+ * 
+ *   LEARNED THAT WEBRTC IS BUILT ON UDP AND TOTALLY DIFFERENT FROM WEBSOCKET
+ * 
+ *   SOURCE IP
+ *   DESTINATION IP
+ *   SOURCE PORT
+ *   DESTINATION PORT
+ *   SOURCE HOST 
+ *   DESTINATION HOST
+ *  
+ *   STATLESSS
+ * 
+ *   WHAT IT CONTAINS SOURCE DESTINATION PORT LENTGHT OF DATA CHECKSUM AND DATA
+ * 
+ *   less security  , chances of data courrptions
+ * 
+ * 
+ * Domain Name System (DNS) poisoning happens when fake information is entered into the cache of a domain name server, 
+ * resulting in DNS queries producing an incorrect reply, sending users to the wrong website. DNS poisoning also goes by the terms 
+ * “DNS spoofing” and “DNS cache poisoning.”
+
+ */
