@@ -108,3 +108,36 @@ traceroute to google.com (216.58.200.174), 64 hops max, 52 byte packets
  * “DNS spoofing” and “DNS cache poisoning.”
 
  */
+
+/**
+ *  VIDEO STREAMING
+ *  WEBRTC
+ *  DNS
+ *  VPN 
+ * 
+ *  ALL THESE ARE GOOD OPTION FOR UDP
+ */
+
+/**
+ *  UDP DATAGRAM 
+ * 
+ *  SOURCE AND DESTINATION PORT
+ *  CHECKSUM
+ *  DATA LENGTH
+ */
+
+
+/**
+ *  simple protocol
+ *  header size is small 8byte where in IP its 20
+ *  stateless
+ *  no handshake
+ *  consistency vs letency => this one has low latency
+ */
+
+/**
+ *  no acnoledgement
+ *  no guarantee delievery
+ *  anyone can send data and no order
+ *  security spoofed
+ */
