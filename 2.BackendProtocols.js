@@ -141,3 +141,40 @@ traceroute to google.com (216.58.200.174), 64 hops max, 52 byte packets
  *  anyone can send data and no order
  *  security spoofed
  */
+
+
+
+/**
+ *  TCP : TRANSPITION CONTROL PROTOCOL
+ * 
+ *   RELIEABLE COMMUNICATION
+ *   ANY BIDRECTIONAL COMMUNICATION
+ *   WEB COMMUNICATION
+ *   DATABASE COMMUNICATION
+ * 
+ *   SOURCE IP PORT / DESTINATION IP PORT HASHED
+ *  
+ *   LOST PACKETS ARE RETRASMITTED
+ * 
+ *    SYN.  SYN/ACK SYN
+ * 
+ * 
+ *   NEED DEEPER UNDERSTANDING ON FILE DESCRIPTOR
+ * 
+ *   NO NEEDED TO WAIT FOR ROUND TRIP TO COMPLETE
+ * 
+ *   WE CAN ACKNOLEDGE MULTIPLE SYN WITH WITH ACK BEST THINK I LEARNED TODAY
+ * 
+ *   RETRANSIMISION GIVES GUREENTED THAT SAGEMENT WILL BE RECIEVED
+ * 
+ *   layer 4 protocol 
+ *   gurentee 
+ *   stateful
+ */
+
+
+/**
+ *  TCP SEGEMENT ITS ALL ABOUT WHAT GET PASSED 20 BYTES OF HEADER
+ * 
+ *  https://en.wikipedia.org/wiki/Jumbo_frame
+ */
