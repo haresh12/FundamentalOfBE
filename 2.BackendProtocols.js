@@ -178,3 +178,22 @@ traceroute to google.com (216.58.200.174), 64 hops max, 52 byte packets
  * 
  *  https://en.wikipedia.org/wiki/Jumbo_frame
  */
+
+
+
+/**
+ *   TSL. (TRANSPORT LAYER SECURITY)
+ * 
+ *    vanilla HTTP
+ *    diffie hellman
+ *    OVERALL PURPOSE IS TO ENCRYPT DATA WHAT THAT TRANSFERTED TO SENGMENT IN OSI LAYERS
+ *    SYMMETRIC KEY ALGORITM
+ *    AUTHENTICATE SERVER
+ *    SNI
+ *    PRESHARED 
+ *    RSA PUBLIC PRIVATE CERTIFIT SHARING
+ *    TLS 1.2 AND TLS 1.3
+ *    X + Y + Z => Z CAN BE PUBLIC AND X AND Y PRIVATE DIFF HELLMAN ROCKS
+ * 
+ *   DIFFMAN >>>> RSA PUBLIC KEY >>>>> 1.3 >>>> 1.2 
+ */
