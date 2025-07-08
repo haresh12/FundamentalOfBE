@@ -197,3 +197,54 @@ traceroute to google.com (216.58.200.174), 64 hops max, 52 byte packets
  * 
  *   DIFFMAN >>>> RSA PUBLIC KEY >>>>> 1.3 >>>> 1.2 
  */
+
+
+
+/**
+ *  HTTP 1.1
+ * 
+ *   method  
+ *   path 
+ *   protocol
+ *   headers
+ *   body
+ * 
+ * 
+ *  protocol
+ *  code
+ *  code text
+ *  headers
+ *  body
+ * 
+ *  REQUIRE HANDSHAKE BECAUSE BUILT ON TOP OF TCP
+ *  FIRST TCP HANDSHAKE
+ *  THEN TSL HANDSHAKE
+ *  THEN HTTP STUFF STARTS
+ * 
+ *  http 1.1 keep alive is gift but still 6 crome limit is not good part
+ * 
+ *   host option was not there in 1.0 weird
+ * 
+ *  PERSISTABD CONNECTION
+ *  LOW LATECY AND LOW CPU USAGE
+ * 
+ *  WHAT IS HTTP SMUGLING
+ *  WHAT IS PIPLINING IN HTTP 1.1 ? OVERALL CLIENT IS ABLE TO SEND MULTIPLE REQUEST IS PIPLINING PREVIOUSLY ONE REQUEST AT TIME ONLY
+ *  NO ONE USES PIPLELING IN HTTP 1.1 AND YES ITS WEIRD BECUASE IT WAITS FOR ORDERING 
+ *  ALSO NEED TO UNDERSTAND HOW ONE IP CAN HOST 1000 HOST
+ * 
+ *  HTTP2
+ *   
+ *     SPDY
+ *     COMPRESSION
+ *     MULTIPLAXING NEED TO LEARN MORE
+ *     SERVER PUSH (DEAD)
+ *     SECURE (PROTOCOL OSSIFICATION)
+ *  * 
+ */
+
+
+
+/**
+ *    HTTPS AND NODE JS  AND TLS 
+ */
