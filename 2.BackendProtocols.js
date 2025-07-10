@@ -325,4 +325,19 @@ traceroute to google.com (216.58.200.174), 64 hops max, 52 byte packets
 
 /**
  *  HTTP 3 QUIC (MULTIPLEXED STREAMS)
+ * 
+ *  now understood http2 blocking it real not good think thats why upd wins does not care about lossing packets speed matters
+ *  HTTP USES QUIC
+ *  QUIC HAS STREAMS
+ *  QUIC USES UDP
+ *  TLS IN ONE HANDSHAKE
+ *  CONNECTION MIGRATION IS SOMETHING WE NEED TO GO DEEP
+ *  HPACK COMPRESSION ALGORITHM for http2
+ *  QPACK FROM HTTP3
+ *  QUIC DOES NOT ALLOW FRAGMENTATION SO WHAT IF PACKET SIZE IS MORE THEN MTU SO USE SMALL DATAGRAM / SAGEMENT / FRAME / PACKETS
+ */
+
+
+/**
+ *  GRPC =>>> HTTP2 KO AAGE BADANE KA KAAM
  */
