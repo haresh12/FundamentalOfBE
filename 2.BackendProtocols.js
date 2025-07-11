@@ -428,3 +428,58 @@ traceroute to google.com (216.58.200.174), 64 hops max, 52 byte packets
  */
 
 
+/**
+ *  BACKEND EXECUTION PATTERN 
+ * 
+ *   PROCESS VS THREAD whats the difference 
+ * 
+ *    thread is just light weight process
+ *    THREAD DOES NOT HAVE SPEPRATED MEMORY IT JUST SHARE WHATS PROCESS HAS SINGLE PROCESS CAN HAVE MULTIPLE THREAD (LWP)
+ * 
+ *   what is race condition in case of multi threading
+ *   IN MOST OF CASES MULTI TRHEADING NOT REALLY GOOD IDEA 
+ * 
+ *   APACHED , ENVOY MULTI THREDING EXAMPLE
+ * 
+ *   SYC QUEUE AND ACCEPT QUEUE
+ *   HASHING 
+ *   PORT MATCHING
+ * 
+ *   https://www.cloudflare.com/learning/ddos/syn-flood-ddos-attack/
+ * 
+ *   KERNAL CREATES OVERALL 4 QUEUS
+ *   SNY QUEUE
+ *   ACCEPT QUEUE
+ *   SEND BUFFERS (QUEUE)
+ *   RECEIVE BUFFERS (QUEUE)  
+ * 
+ *   https://en.wikipedia.org/wiki/Zero-copy
+ *   
+ *   Nagles alogrithm
+ * 
+ *   THREE CORE PARTS AS BELOW KERNAL IS KILLER
+ *   PROCESS AND THREAD
+ *   SYN AND ACCEPT QUEUE
+ *   SEND AND RECIEVE BUFFUR
+ * 
+ *   need to learn more what if recieve queue get fulled
+ * 
+ *   COMMUNICATION BETWEEN BE AND KERNAL IS WHAT WE LEARNED HERE
+ * 
+ *   LISNER 
+ *   READER
+ *   ACCEPTOR
+ * 
+ *  NODE HAS SINGLE LISNER READER AND ACCEPTOR ALL IN ONE THREAD
+ * 
+ *  SO_REUSEPORT LEARN MORE ABOUT
+ * 
+ *  NAGEL ALGORITHEM COULD BE ISSUE IN CLIENT DEALY REALLY GOOD VIDEO 
+ *  why we have to wait until limit matches single big i need mean i need i don't need to wait 1460
+ * 
+ *   TCP_NODEALY
+ * 
+ *  https://github.com/curl/curl/blob/master/docs/libcurl/opts/CURLOPT_TCP_NODELAY.md
+ * 
+ *  https://curl.se/libcurl/c/CURLOPT_TCP_NODELAY.html
+ */
