@@ -554,3 +554,44 @@ traceroute to google.com (216.58.200.174), 64 hops max, 52 byte packets
     *  OVERALL SKIPPED VIDEO IN THIS COURSE 2
     *  WEBRTC + WEBSOCKET LAYER 4 AND 7 PROXY
     */
+
+   /**
+    *  AGAIN MAIN FOCUS OF THIS COURSE IS TO EXPLAIN YOU BELOW TOPIC
+    * 
+    *     DIFFERENT WAYS OF COMMUNICATIONS LIKE
+    *     POLLING (SHORT/LONG)
+    *     REQUEST RESPONSE 
+    *     ASYC/AWAIT
+    *     PUB-SUB
+    *     WEBSOCKET
+    *     PUSH
+    *     SSE (SERVER SIDE EVENTS)
+    *     
+    *    THEN NEXT BIG TOPIC IS TO UNDERSTAND DIFFERNT PROTOCOL
+    * 
+    *     OSI MODAL
+    *     TCP
+    *     UDP
+    *     HTTP 1.1/2/3
+    *     TLS
+    *     CERTIFICATES
+    *     GRPC
+    *     WEBSOCKET
+    *     WEBRTC
+    * 
+    *    THEN NEXT BIG TOPIC IS BACKEND COMMUNICATION PATTERN
+    * 
+    *      HERE MAINLY 3 THINGS WE NEED TO UNDERSTAND 
+    * 
+    *       PROCESS AND THREADS
+    *       SYN AND ACCEPT QUEQUES (OS LEVEL STUFF)
+    *       SEND BUFFER AND RECEIVE BUFFER
+    * 
+    * 
+    *    AT LAST WHAT DO WE MEAN BY 
+    *  
+    *      PROXY AND REVERSE PROXY 
+    *      LAYER 4 AND LAYER 7 LOAD BALANCING 
+    *   
+    *  WE WILL GO WITH THIS ENTIRE COURSE 2 MORE TIME FULLY GET IDEA ON ALL THIS TOPICS   
+    */
