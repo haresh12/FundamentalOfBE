@@ -595,3 +595,108 @@ traceroute to google.com (216.58.200.174), 64 hops max, 52 byte packets
     *   
     *  WE WILL GO WITH THIS ENTIRE COURSE 2 MORE TIME FULLY GET IDEA ON ALL THIS TOPICS   
     */
+
+
+   /**
+    *  HOW CHAT GPT USE SSE
+    * 
+    *   first of all chat gpt use HTTP2 
+    *   TLS 1.3
+    *   ALT-SVTC HEADER 
+    *   HTTP2 HAS MOST OF TIME ONE CONNNECTION THATS WHY CONNECTION ID IS SAME
+    */
+
+
+   // EVENT STREAM 
+
+   /**
+    * delta_encoding	"v1"	
+12:20:17.230
+delta	{"p": "", "o": "add", "v": {"message": {"id": "6cb4dba1-bcf4-4e42-87b5-88c27ef1d0d9", "author": {"role": "assistant", "name": null, "metadata": {}}, "create_time": 1752303016.756231, "update_time": null, "content": {"content_type": "text", "parts": [""]}, "status": "in_progress", "end_turn": null, "weight": 1.0, "metadata": {"citations": [], "content_references": [], "message_type": "next", "model_slug": "gpt-4o", "default_model_slug": "auto", "parent_id": "ee1185ae-53c0-457f-b91a-59e7800037ce", "model_switcher_deny": []}, "recipient": "all", "channel": null}, "conversation_id": "68720562-7e94-8001-9735-a3b59e08a826", "error": null}, "c": 0}	
+12:20:17.281
+message	{"type": "server_ste_metadata", "metadata": {"conduit_prewarmed": true, "fast_convo": true, "warmup_state": "warm", "is_first_turn": false, "model_slug": "gpt-4o"}, "conversation_id": "68720562-7e94-8001-9735-a3b59e08a826"}	
+12:20:17.314
+message	{"type": "message_marker", "conversation_id": "68720562-7e94-8001-9735-a3b59e08a826", "message_id": "6cb4dba1-bcf4-4e42-87b5-88c27ef1d0d9", "marker": "user_visible_token", "event": "first"}	
+12:20:17.314
+delta	{"p": "/message/content/parts/0", "o": "append", "v": "Hi"}	
+12:20:17.314
+delta	{"v": " Ha"}	
+12:20:17.314
+delta	{"v": "resh! \ud83d\ude04 \nLooks like we're in a *hi loop* \u2014 ready"}	
+12:20:17.416
+delta	{"p": "", "o": "patch", "v": [{"p": "/message/content/parts/0", "o": "append", "v": " when you are!"}, {"p": "/message/status", "o": "replace", "v": "finished_successfully"}, {"p": "/message/end_turn", "o": "replace", "v": true}, {"p": "/message/metadata", "o": "append", "v": {"is_complete": true, "finish_details": {"type": "stop", "stop_tokens": [200002]}}}]}	
+12:20:17.520
+message	{"type": "title_generation", "title": "Hi Loop", "conversation_id": "68720562-7e94-8001-9735-a3b59e08a826"}	
+12:20:17.618
+message	{"type": "message_stream_complete", "conversation_id": "68720562-7e94-8001-9735-a3b59e08a826"}	
+12:20:17.642
+message	{"type": "conversation_detail_metadata", "banner_info": null, "blocked_features": [], "model_limits": [], "limits_progress": [{"feature_name": "deep_research", "remaining": 5, "reset_after": "2025-08-11T06:50:18.518718+00:00"}], "default_model_slug": "auto", "conversation_id": "68720562-7e94-8001-9735-a3b59e08a826"}	
+12:20:18.672
+message	[DONE]	
+12:20:18.672
+
+    */
+
+/**
+ *  WHY DON'T THAT DO MODARATION NO IN CHATGPT API FOR EACH MESSAGE OR MAY BE THEY ARE NOT SHOWING IT JUST GET CALLED IN BACKGROUD
+ */
+
+
+
+/**
+ *  THIS IS HOW YOU CAN DO SSE WITHOUT USING EVENT STREAM BROWSER API
+ * 
+ *  
+ */
+
+// async function connectToSSE() {
+//   const response = await fetch('/sse-endpoint', {
+//     method: 'GET',
+//     headers: {
+//       'Accept': 'text/event-stream'
+//     }
+//   });
+
+//   const reader = response.body.getReader();
+//   const decoder = new TextDecoder('utf-8');
+//   let buffer = '';
+
+//   while (true) {
+//     const { done, value } = await reader.read();
+//     if (done) break;
+
+//     buffer += decoder.decode(value, { stream: true });
+
+//     let lines = buffer.split('\n');
+//     buffer = lines.pop(); // Incomplete line stays in buffer
+
+//     for (let line of lines) {
+//       if (line.startsWith('data:')) {
+//         const data = line.replace(/^data:\s*/, '');
+//         try {
+//           const json = JSON.parse(data);
+//           console.log('Event received:', json);
+//         } catch (e) {
+//           console.log('Raw event:', data);
+//         }
+//       }
+//     }
+//   }
+// }
+
+/**
+ *  THE JOURNY OF REQUEST TO BACKEND
+ * 
+ *   MAIN 6 STEPS
+ * 
+ *    ACCEPT
+ *    READ 
+ *    DECRPET
+ *    PARSE
+ *    DECODE
+ *    PROCESS
+ * 
+ *  parsing is most expensive from above all
+ * 
+ *   https://medium.com/@hnasr/the-journey-of-a-request-to-the-backend-c3de704de223
+ */
