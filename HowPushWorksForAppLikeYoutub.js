@@ -299,5 +299,118 @@ Let me know if you want to dive into how device tokens are generated or expire, 
 
 
 
+/**
+ * 🎯 Multiplexing / Demultiplexing – Real Technical Definition
+Multiplexing: Technique where multiple logical streams (from different apps or sessions) share a single physical communication channel (like one TCP connection or one socket).
+
+Demultiplexing: At the receiving end, the system uses identifiers (like port numbers, stream IDs, sequence numbers) to reconstruct and deliver each logical stream to its correct handler/process.
+
+🧱 Where It's Used
+Layer	Multiplexed What?	Example
+Transport	Multiple app sockets → one NIC	TCP ports
+Application	Multiple HTTP streams → one TCP conn	HTTP/2, HTTP/3
+Network	Multiple IP datagrams → one physical link	IP over Ethernet
+OS/Kernel	Multiple user processes → one kernel socket	epoll, select
+
+🧪 System-Level Examples
+🔹 TCP/IP (Transport Layer Multiplexing)
+When multiple apps (e.g., Chrome tabs, VSCode, NPM) open TCP connections:
+
+bash
+Copy
+Edit
+# netstat or ss output
+Proto  Local Address    Foreign Address  State       PID/Program
+tcp    192.168.0.5:5040 172.217.161.46:443 ESTABLISHED  Chrome
+tcp    192.168.0.5:5041 104.18.6.218:443   ESTABLISHED  VSCode
+tcp    192.168.0.5:5042 13.224.10.125:443  ESTABLISHED  NPM
+Your OS uses:
+
+Source IP + Source Port
+
+Destination IP + Destination Port
+
+to multiplex and later demultiplex traffic over the same network card.
+
+✅ The NIC sees one stream of packets
+💡 The OS demuxes based on the 4-tuple
+
+text
+Copy
+Edit
+(source_ip, source_port, dest_ip, dest_port)
+🔸 HTTP/1.1 vs HTTP/2 Multiplexing
+HTTP/1.1: 1 request per TCP connection
+
+HTTP/2: Multiplexes many requests over a single TCP connection
+
+HTTP/2 Headers:
+Each stream has its own:
+
+Stream-ID
+
+Headers frame
+
+Data frames
+
+The server demuxes requests by stream ID, even though they’re interleaved at the TCP level.
+
+🔥 This is why HTTP/2 solved the Head-of-Line blocking problem of HTTP/1.1.
+
+🔸 QUIC / HTTP/3 Multiplexing (UDP-based)
+Based on UDP (connectionless), but QUIC implements:
+
+Stream IDs
+
+Flow control
+
+Encryption
+
+It multiplexes multiple streams reliably over a single UDP connection, handling packet loss and reordering at user space.
+
+This means:
+
+YouTube can stream video (Stream ID 1)
+
+Fetch comments (Stream ID 2)
+
+Load ads (Stream ID 3)
+→ all over one QUIC connection.
+
+🔸 Kernel-Level Multiplexing: select, poll, epoll
+When your server (say, Nginx or Node.js) handles thousands of sockets:
+
+It uses epoll (Linux) or kqueue (BSD/macOS)
+
+Registers multiple file descriptors
+
+OS tells which one is ready
+
+💡 You’re multiplexing multiple file descriptors into a single blocking call.
+
+c
+Copy
+Edit
+int epoll_fd = epoll_create1(0);
+epoll_ctl(epoll_fd, EPOLL_CTL_ADD, sockfd, &event);
+
+while (1) {
+  int n = epoll_wait(epoll_fd, events, MAX_EVENTS, -1);
+  // demultiplex based on events[n].data.fd
+}
+🔁 Demultiplexing Techniques by Layer
+Layer	Demux Field	Example
+TCP	Port numbers	server:80, client:49152
+HTTP/2	Stream-ID	0x00000001, 0x00000003
+OS	File descriptor ID	fd = 3, fd = 4
+QUIC	Stream-ID in packet	Managed in user space
+
+💣 Final Takeaway
+Multiplexing is a performance and scalability primitive.
+Demultiplexing is how you avoid chaos at the receiving end.
+
+Every efficient protocol, scalable backend server, and fast browser — depends on tight, predictable multiplexing and accurate demuxing.
+ */
+
 
 
