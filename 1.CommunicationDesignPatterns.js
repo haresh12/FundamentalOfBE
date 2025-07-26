@@ -178,3 +178,30 @@
  *  
  *  loved how this proxy handles changes from http 1.1 to 2 o 3 without doing much from our side and just have client and server proxy
  */
+
+
+/**
+ * THESE ARE THE ALL PATTERS I LEARNED FROM COURSE
+ * 
+ *    REQUEST RESPONSE 
+ *    ASYC AWAIT
+ *    PUSH (NOT AS EASY AS YOU THINK)
+ *    SHORT POLING
+ *    LONG POLING 
+ *    SERVER SENT EVENTS (text/event-stream) (EventSource)
+ *    PubSub (youtub upload video is best example)
+ *    MultiPlexing and DeMultiplexing
+ *    SideCard Pattern (Need to little more deeper)
+ */
+
+/**
+ * REQUEST RESPONSE - Classic pattern! Client sends a request, waits for server’s reply — simple, stateless, REST-style, everywhere!
+ * ASYNC AWAIT - Modern JS way to handle asynchronous ops. Looks synchronous, behaves asynchronous. Makes code readable, predictable.
+ * PUSH - Server pushes data to client without being asked. Not magic — needs infra like WebSockets or FCM behind the scenes!
+ * SHORT POLLING - Client keeps asking, "Any update?" every few seconds. Works, but wasteful. Like checking mail every 10 sec.
+ * LONG POLLING - Client asks, server *waits* until update, then responds. Keeps connection open longer — smarter than short polling.
+ * SERVER SENT EVENTS (SSE) - One-way push over HTTP. Text/event-stream + EventSource — perfect for live scores, stock updates!
+ * PubSub - Publisher fires an event (e.g., YouTuber uploads video), subscribers (clients) get it. Decoupled, scalable, powerful!
+ * MultiPlexing & DeMultiplexing - Combine multiple streams in one channel (multiplex), separate them on receive (demux). Save ports, boost perf!
+ * SideCar Pattern - Helper container runs *beside* main app (like logging, auth, caching). Decouples responsibilities. Powerful in microservices!
+ */
