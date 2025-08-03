@@ -205,3 +205,69 @@
  * MultiPlexing & DeMultiplexing - Combine multiple streams in one channel (multiplex), separate them on receive (demux). Save ports, boost perf!
  * SideCar Pattern - Helper container runs *beside* main app (like logging, auth, caching). Decouples responsibilities. Powerful in microservices!
  */
+
+
+
+/**
+ *  FRAGMENT
+ *  SEGNEMENTS
+ *  PACKETS
+ *  DATA GRAM 
+ *    DIFFERECE IN ALL OSI
+ * 
+ *  TIME TO LIVE IN IP PROTOCOL
+ *  MTU
+ *  FRAGMATIATION 
+ *  ECN
+ */
+
+
+// ─────────── NETWORKING BASICS: OSI MAPPED ───────────
+
+// FRAGMENT
+// IP-level split of a packet when size > MTU (usually 1500 bytes for Ethernet).
+// Happens at Layer 3 (IP layer). Each fragment gets its own IP header.
+// Receiver reassembles all fragments based on offset & MF (More Fragments) flag.
+
+// SEGMENT
+// Transport layer data unit (Layer 4) — TCP or UDP adds headers here.
+// TCP Segment = Data + TCP header (seq number, ack, ports, flags)
+// UDP Segment = Data + UDP header (ports, length, checksum)
+
+// PACKET
+// Network layer unit (Layer 3).
+// Packet = IP header + payload (usually a TCP/UDP segment)
+// Used for routing between hosts across networks.
+
+// DATAGRAM
+// Like a packet, but specifically refers to a **connectionless** message.
+// Mostly used in UDP (fire-and-forget). Each datagram is standalone.
+
+// ─────────── CORE IP CONCEPTS ───────────
+
+// TIME TO LIVE (TTL)
+// Field in IP header. Initial value set by sender (e.g., 64, 128).
+// Each router decrements TTL by 1.
+// If TTL === 0 → packet is dropped and ICMP "Time Exceeded" is sent back.
+// Prevents infinite routing loops.
+
+// MTU (Maximum Transmission Unit)
+// Max size of a data unit that can be transmitted over a link.
+// Standard Ethernet MTU = 1500 bytes.
+// If packet > MTU → triggers fragmentation at the IP layer.
+
+// FRAGMENTATION
+// IP breaks large packets into smaller fragments to fit MTU constraints.
+// Each fragment has: fragment offset + MF (More Fragments) bit.
+// Receiver reassembles fragments into original packet.
+// Bad for performance: lose one fragment → lose whole packet.
+
+// ECN (Explicit Congestion Notification)
+// IP + TCP flags used to **signal congestion** without dropping packets.
+// Works with routers and endpoints that support it.
+// Instead of dropping, routers **mark** packets → receiver notifies sender → sender slows down.
+
+
+/**
+ *  UDP prior communication not required
+ */
