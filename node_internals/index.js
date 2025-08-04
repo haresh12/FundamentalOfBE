@@ -72,5 +72,37 @@
  */
 
 /**
- *  EPOLL (NEED TO UNDERTAND DEEP)
+ *  EPOLL (NEED TO UNDERSTAND DEEP)
+ *  --------------------------------
+ *  - epoll is a scalable I/O event notification system used by libuv in Node.js on Linux.
+ *  - It's designed to monitor multiple file descriptors (FDs) to see if I/O is possible on any of them.
+ * 
+ *  HOW IT WORKS:
+ *  - epoll_create() creates an epoll instance.
+ *  - epoll_ctl() adds, modifies, or removes file descriptors (sockets, pipes, etc.).
+ *  - epoll_wait() blocks and waits for I/O events on registered FDs.
+ * 
+ *  WHAT’S INTERESTING:
+ *  - If you register an FD that doesn't exist or is already closed,
+ *    epoll_ctl() fails *immediately* with EBADF (bad file descriptor).
+ *  - It does **not** wait for epoll_wait() because it never adds the FD to the poll set.
+ *  - So, there is **no polling overhead** for invalid or deleted descriptors.
+ * 
+ *  WHY THAT MATTERS:
+ *  - Node.js (via libuv) checks for errors up front.
+ *  - If FD is invalid, it short-circuits the event loop and calls the callback with an error (or drops it).
+ *  - This prevents wasting CPU cycles waiting on invalid file descriptors.
+ * 
+ *  REAL NODE BEHAVIOR:
+ *  - When you do something like fs.open() and get an invalid FD,
+ *    libuv doesn’t even register it for polling — you get an error right away.
+ * 
+ *  PRO TIP:
+ *  - You can detect when epoll skips by checking epoll_ctl() return values in C/libuv layer.
+ *  - In high-scale systems, cleaning up stale FDs (e.g. closed sockets) is crucial
+ *    to avoid unnecessary epoll_ctl() syscalls.
+ * 
+ *  IN SUMMARY:
+ *  - epoll is fast because it skips overhead when the file descriptor is gone.
+ *  - No wasted poll state, no CPU cycles, no waiting.
  */
